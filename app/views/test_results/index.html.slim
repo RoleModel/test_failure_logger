@@ -1,0 +1,14 @@
+= link_to "Index", projects_path
+h1= @project.name
+
+table
+  thead
+    th Percent
+    th Ratio
+    th Description
+  tbody
+    - @examples.each do |example|
+      tr
+        td #{example.percentage.round(1)}%
+        td #{example.failed}/#{example.total_runs}
+        td= example.description
